@@ -3,20 +3,24 @@
 
 {% block content %}
 
-<section class="wrap-content">
-<div class="card-background half-width workshop-details">
+<section>
+<div class="card-background workshop-details">
     <section class="card workshop-header">
       <div class="workshop-info">
         <h2 class="workshop-title">{{workshop.title}}</h2>
-        <h3>{{workshop.datetime|date:"d-m-Y" }}</h3>
       </div>
     </section>
     <section class="card">
-      <img src="{% static 'images/image_placeholder.jpg' %}" alt="Placeholder">
-    </section>
-    <section class="card">
-      <p class="workshop-cost">Price: {{ workshop.cost }}</p>
+      <img class="workshop-image__details" src="{% static 'images/image_placeholder.jpg' %}" alt="Placeholder">
+      <div class="workshop-text">
+      <p>Price: £{{ workshop.cost }}</p>
+      <br>
+      <p>This workshop is for {{ workshop.skill_level }} knitters.</p>
+      <br>
+      <p>Workshop starts on {{workshop.datetime|date:"d-m-Y" }}</p>
+      <br>
       <p>{{ workshop.description }}</p>
+      </div>
     </section>
 </div>
 </section>

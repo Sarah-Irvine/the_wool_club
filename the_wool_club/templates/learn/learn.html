@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="learn-card main-learn-card">
+        <h2 class="learn-main-title">Workshops</h2>
+        <h3>Are you ready to dive into a new project but don't know where to start? Need some friendly motivation? Want to learn something new? Our in-depth workshops are for you! </h3>
+        <p>Browse our workshops and sign up today!</p>
+        <a class="button" href="{% url 'class_list' %}">Show me the workshops!</a>
+    </div>
+
+    <div class="learn-container">
+        <div class="learn-card half-width">
+            <h3 class="learn-title">The Basics</h3>
+            <br>
+            <p>Looking for some help to get started? Our handy quick-start guides are for you. We have notes on everything from casting-on to casting-off, colour-choice, we debunk your yarn questions, and everything in between...</p>
+            <br>
+            <a class="button" href="{% url 'the_basics' %}">I want to learn the basics!</a>
+        </div>
+        <div class="learn-card half-width">
+            <h3 class="learn-title">Stitch Guide</h3>
+            <br>
+            <p>Experienced knitter looking to expand your knowledge? Check out our handy stitch guide!</p>
+            <br>
+            <a class="button" href="{% url 'stitch_guide' %}">Take me to your stitch guide!</a>
+        </div>
+    </div>
+    
+{% endblock content %}

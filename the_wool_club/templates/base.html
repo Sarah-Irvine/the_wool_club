@@ -17,8 +17,28 @@
     <a class="header__logo" href="{% url 'home'%}">the wool club</a>
     <nav>
       <ul class="nav__list">
-        <li><a href="#" class="nav__item">Shop</a></li>
-        <li><a href="{% url 'class_list'%}" class="nav__item">Learn</a></li>
+        <li>
+          <div class="dropdown">
+            <a href="#" class="nav__item">Shop</a>
+            <div class="dropdown-content">
+              <a href="#">All</a>
+              <a href="#">Yarn</a>
+              <a href="#">Accessories</a>
+              <a href="#">Patterns</a>
+              <a href="#">Kits</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <a href="{% url 'learn'%}" class="nav__item">Learn</a>
+            <div class="dropdown-content">
+              <a href="{% url 'class_list'%}">Workshops</a>
+              <a href="{% url 'the_basics'%}">The Basics</a>
+              <a href="{% url 'stitch_guide'%}">Stitch Guide</a>
+            </div>
+          </div>
+        </li>
         <li><a href="#" class="nav__item">Community</a></li>
         <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/account.svg' %}" alt="Account"></a></li>
         <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/cart.svg' %}" alt="Cart"></a></li>
@@ -38,6 +58,8 @@
     <section class="footer__nav-section">
       <div class="footer__nav-section__list">
         <span class="white-text">Help & Information</span>
+        <hr>
+        <br>
         <ul>
           <li><a class="footer__nav__item" href="#">Delivery</a></li>
           <li><a class="footer__nav__item" href="#">Returns & Refunds</a></li>
@@ -46,6 +68,8 @@
       </div>
       <div class="footer__nav-section__list">
         <span class="white-text">About the wool club</span>
+        <hr>
+        <br>
         <ul>
           <li><a class="footer__nav__item" href="#">About Us</a></li>
           <li><a class="footer__nav__item" href="#">Corporate Responsibility</a></li>

@@ -4,28 +4,30 @@
 {% block content %}
 
     <section class="page_search">
-      <div class="page_search__title page_search__container">Learn a new skill...</div>
-      <div>
+      <h1 class="page_search__title">Learn a new skill...</h1>
+      <p class="page-search__subtitle">Why not sign up today? We have workshops to suit every level from beginner through to advanced.</p>
       <form action="{% url 'class_list' %}" method="get" class="page_search__controls">
         <div class="search-bar">
         <input class="search-bar__input" type="text" name="keywords" id="keywords", placeholder="Search workshops...">
         <button class="search-bar__button" type="submit"><img class="nav__svg-logo" src="{% static 'images/search.svg' %}" alt="search"></button>
         </div>
-        <div class="input-group">
-          <a href="{% url 'class_list' %}" ><img class="nav__svg-logo" src="{% static 'images/refresh.svg' %}" alt="search"></a>
-        </div>
+        <a class="input-group" href="{% url 'class_list' %}" ><img class="nav__svg-logo" src="{% static 'images/refresh.svg' %}" alt="search"></a>
       </form>
-      </div>
     </section>
 
     <ul class="card-background">
       {% for workshop in workshops %}
         <li class="workshop">
-          <img class="workshop-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
-          <div >
-            <h2>{{ workshop.title }}</h2>
+          <div class="workshop__image-text">
+            <img class="workshop-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
+            <div class="workshop-text__list">
+            <h2 class="bold">{{ workshop.title }}</h2>
+            <br>
             <h3>{{ workshop.datetime }} | £{{ workshop.cost }}</h3>
+            <h4>Skill level: {{ workshop.skill_level }}</h4>
+            <br>
             <p>{{ workshop.description }}</p>
+            </div>
           </div>
           <div class="workshop-controls">
             <a class="button" href="{% url 'class_details' workshop.id %}">Details</a>
@@ -35,3 +37,4 @@
     </ul>
     
 {% endblock content %}
+

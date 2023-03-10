@@ -28,3 +28,13 @@ def list(request):
     return render(request, 'learn/list.html', {'workshops': workshops})
 
 
+def learn(request):
+    return render(request, 'learn/learn.html')
+
+def stitch_guide(request):
+    return render(request, 'learn/stitch_guide.html')
+
+def the_basics(request):
+    return render(request, 'learn/the_basics.html')
+
+
