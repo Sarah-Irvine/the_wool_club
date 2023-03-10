@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>thewoolclub</title>
+</head>
+<body class="background container">
+
+  <header class="header">
+    <a class="header__logo" href="{% url 'home'%}">the wool club</a>
+    <nav>
+      <ul class="nav__list">
+        <li><a href="#" class="nav__item">Shop</a></li>
+        <li><a href="{% url 'class_list'%}" class="nav__item">Learn</a></li>
+        <li><a href="#" class="nav__item">Community</a></li>
+        <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/account.svg' %}" alt="Account"></a></li>
+        <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/cart.svg' %}" alt="Cart"></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+        {% comment %} landing page {% endcomment %}
+    {% endblock content %}
+
+  </main>
+
+  <footer class="footer">
+    <section class="footer__nav-section">
+      <div class="footer__nav-section__list">
+        <span class="white-text">Help & Information</span>
+        <ul>
+          <li><a class="footer__nav__item" href="#">Delivery</a></li>
+          <li><a class="footer__nav__item" href="#">Returns & Refunds</a></li>
+          <li><a class="footer__nav__item" href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer__nav-section__list">
+        <span class="white-text">About the wool club</span>
+        <ul>
+          <li><a class="footer__nav__item" href="#">About Us</a></li>
+          <li><a class="footer__nav__item" href="#">Corporate Responsibility</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="footer__copyright-section">
+      <p class="white-text">&copy;2023 the wool club</p>
+    </section>
+  </footer>
+
+</body>
+</html>

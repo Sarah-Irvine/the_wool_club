@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="wrap-content">
+<div class="card-background half-width workshop-details">
+    <section class="card workshop-header">
+      <div class="workshop-info">
+        <h2 class="workshop-title">{{workshop.title}}</h2>
+        <h3>{{workshop.datetime|date:"d-m-Y" }}</h3>
+      </div>
+    </section>
+    <section class="card">
+      <img src="{% static 'images/image_placeholder.jpg' %}" alt="Placeholder">
+    </section>
+    <section class="card">
+      <p class="workshop-cost">Price: {{ workshop.cost }}</p>
+      <p>{{ workshop.description }}</p>
+    </section>
+</div>
+</section>
+{% endblock content %}
