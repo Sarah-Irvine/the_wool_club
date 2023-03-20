@@ -35,12 +35,28 @@
             <div class="dropdown-content">
               <a href="{% url 'class_list'%}">Workshops</a>
               <a href="{% url 'the_basics'%}">The Basics</a>
-              <a href="{% url 'stitch_guide'%}">Stitch Guide</a>
+              <a href="{% url 'stitch_guide'%}">Stitch Dictionary</a>
             </div>
           </div>
         </li>
         <li><a href="#" class="nav__item">Community</a></li>
-        <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/account.svg' %}" alt="Account"></a></li>
+        <li>
+          <div class="dropdown">
+            <img class="nav__svg-logo nav__item" src="{% static 'images/account.svg' %}" alt="Account">
+            <div class="dropdown-content">
+              {% if user.is_authenticated %}
+                  <a href="{% url 'my_profile' %}">My Profile</a>
+                  <a href="{% url 'accounts_logout' %}">Log out</a>
+              {% else %}
+                  <div class="dropdown__login-register">
+                    <a href="{% url 'accounts_login' %}">Login</a>
+                    <span> | </span>
+                    <a href="{% url 'accounts_register' %}">Register</a>
+                  </div>
+              {% endif %}
+            </div>
+          </div>        
+        </li>
         <li><a href="#" class="nav__item"><img class="nav__svg-logo" src="{% static 'images/cart.svg' %}" alt="Cart"></a></li>
       </ul>
     </nav>

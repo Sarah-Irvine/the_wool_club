@@ -3,6 +3,32 @@
 
 {% block content %}
 
-    the basics...Coming Soon!
+<section class="page_search">
+    <h1 class="page_search__title">Looking to master the basics...</h1>
+    <p class="page-search__subtitle">These handy quick-start guides are the fastest way to learn</p>
+    <form action="{% url 'the_basics' %}" method="get" class="page_search__controls">
+      <div class="search-bar">
+      <input class="search-bar__input" type="text" name="title" id="title", placeholder="Search the basics...">
+      <button class="search-bar__button" type="submit"><img class="nav__svg-logo" src="{% static 'images/search.svg' %}" alt="search"></button>
+      </div>
+      <a class="input-group" href="{% url 'the_basics' %}" ><img class="nav__svg-logo" src="{% static 'images/refresh.svg' %}" alt="search"></a>
+    </form>
+</section>
+
+<ul class="card-background">
+    {% for article in articles %}
+        <li class="workshop">
+        <div class="workshop__image-text">
+          <div class="workshop-text__list">
+          <h2 class="bold">{{ article.title }}</h2>
+          <br>
+          <p>{{ article.content }}</p>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
     
 {% endblock content %}
+
+

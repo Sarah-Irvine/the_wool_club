@@ -10,7 +10,13 @@
     <ul class="homepage-circles">
         <li class="circle-brown"><a class="brown-circle-text" href="#">Shop</a></li>
         <li class="circle-brown"><a class="brown-circle-text" href="{% url 'learn'%}">Learn</a></li>
-        <li class="circle-black"><a class="black-circle-text" href="#">Join</a></li>
+        <li class="circle-black">
+            {% if user.is_authenticated %}
+                <a class="black-circle-text" href="{% url 'my_profile' %}">My Profile</a>
+            {% else %}
+                <a class="black-circle-text" href="{% url 'accounts_register' %}">Join</a>
+            {% endif %}
+        </li>
     </ul>
     </div>
 </section>

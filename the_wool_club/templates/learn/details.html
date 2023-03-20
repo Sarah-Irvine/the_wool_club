@@ -13,14 +13,16 @@
     <section class="card">
       <img class="workshop-image__details" src="{% static 'images/image_placeholder.jpg' %}" alt="Placeholder">
       <div class="workshop-text">
-      <p>Price: £{{ workshop.cost }}</p>
-      <br>
       <p>This workshop is for {{ workshop.skill_level }} knitters.</p>
       <br>
-      <p>Workshop starts on {{workshop.datetime|date:"d-m-Y" }}</p>
+      <p>Workshop starts at {{workshop.datetime|time }} on {{workshop.datetime|date:"d-m-Y" }} and will run for {{ workshop.duration }} hours.</p>
       <br>
       <p>{{ workshop.description }}</p>
-      </div>
+      <br>
+      <p>You can purchase a kit in the shop or bring your own materials. The kit needed will be noted in the welcome email. If you choose to bring your own materials, details of what is contained in the kit can be found on the product page.</p>
+      <br>
+      <p>A Zoom link will be sent out ahead of the workshop. We look forward to seeing you!</p>  
+    </div>
     </section>
 </div>
 </section>

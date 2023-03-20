@@ -23,34 +23,6 @@ rgba(243,243,243,0.8)
 
 #8b806e
 
------
-
-#b6aa97
-rgb(182,170,151)
-
-#775c3c
-rgb(119,92,60)
-
-#91795c
-rgb(145,121,92)
-
-#99836d
-rgb(153,131,109)
-
-#7b634c
-rgb(123,99,76)
-
-#d4d3cd
-rgb(212,211,205)
-
-#8b806e
-rgb(139,128,110)
-
-#d4d4c3
-rgb(212,212,195)
-
-#6c6c64
-rgb(108,108,100)
  */
 
  /* whole site */
@@ -153,6 +125,11 @@ rgb(108,108,100)
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
+  .dropdown__login-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
  
  /* home page styling */
  .homepage{
@@ -298,6 +275,11 @@ rgb(108,108,100)
 .search-bar__input{
   border: none;
   background-color: transparent;
+  width: 90%;
+}
+
+.search-bar__input:focus-visible{
+  outline: none;
 }
 
 .search-bar__button{
@@ -325,29 +307,30 @@ rgb(108,108,100)
 .workshop {
   margin: 0.5rem;
   padding: 1.5rem;
-  background-color: #cfcabf;
+  background-color: rgba(255, 255, 255,0.8);
   border-color: #0C0B0B;
   border-radius: 0.5rem;
   box-shadow: var(--shadow-small);
   display: flex;
   align-items: start;
   justify-content: space-between;
-  border: #8b806e solid;
+  border: #FFFFFF solid;
 }
 
 .button {
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   min-width: 175px;
   margin: 0.25rem;
   box-sizing: border-box;
   transition: background-color 150ms;
   text-align: center;
   cursor: pointer;
-  background-color: #8b806e;
+  background-color: #cfcabf;
   color: #0C0B0B;
   text-decoration: none;
   box-shadow: var(--shadow-small);
+  border: #0c0b0b77 solid 0.25px;
 }
 
 .button:hover{
@@ -379,6 +362,7 @@ rgb(108,108,100)
   padding-left: 10px;
   padding-right: 20px;
 }
+
 /* workshop detail styling */
 
 .card {
@@ -410,6 +394,8 @@ rgb(108,108,100)
   margin-bottom: 20px;
   margin-left: 10px;
 }
+
+/* Learn page styling */
 
 .learn-card{
   margin: 0.5rem;
@@ -448,3 +434,40 @@ rgb(108,108,100)
   font-weight: bold;
   font-size: 25px;
 }
+
+
+/* Login & Register styling */
+.login-register__title{
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.login-register-card{
+  margin: 0.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-small);
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+  height: 300px;
+  margin-bottom: 80px;
+}
+
+.login-register__form{
+  margin-bottom: 20px;
+}
+
+.login-register__form__item{
+  margin-top: 5px;
+}
+
+.small-font{
+  font-size: smaller;
+}
+
