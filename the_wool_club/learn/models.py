@@ -25,15 +25,16 @@ class BasicArticle(models.Model):
 class Stitch(models.Model):
 
     class Skill(models.TextChoices):
-        ONE = 'Beginner'
-        TWO = 'Intermediate'
-        THREE = 'Advanced'
+        BEGINNER = 'Beginner'
+        INTERMEDIATE = 'Intermediate'
+        ADVANCED = 'Advanced'
 
     stitch = models.TextField()
     skill_level = models.TextField(choices=Skill.choices)
     description = models.TextField(blank=True, null=True)
     how_to = models.TextField(blank=True, null=True)
-    image = models.ImageField(default='knitting_steps.jpeg')
+    image_demonstration = models.ImageField(upload_to="uploads/", default='knitting_steps.jpg')
+    image_example = models.ImageField(upload_to="uploads/", default='default_stitch_example.jpg')
 
     def __str__(self):
         return self.stitch

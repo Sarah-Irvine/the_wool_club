@@ -2,5 +2,35 @@
 {% load static %}
 
 {% block content %}
-This is my profile page
+
+<section>
+    <div class="card-background workshop-details">
+        <section class="card">
+            <section class="profile-display">
+
+                <div class="profile-size2">
+                    <img class="profile-image" src="{{ user.profile.profile_pic.url }}" alt="profile pic", height="50px">
+                </div>
+
+                <div class="profile-size">
+                    <ul class="profile-list">
+                        <li>Name: {{ user.username }}</li>
+                        <li>Level: {{ user.profile.skill_level }}</li>
+                        <li>Bio: {{ user.profile.bio }}</li>
+                    </ul>
+                </div>
+
+            </section>
+            <a href="#"><img class="nav__svg-logo" src="{% static 'images/settings.svg' %}" alt=""></a>
+        </section>
+    </div>
+
+    <div class="profile-buttons">
+        <section class="card profile-display">
+            <a class="button" href="#">My Orders</a>
+            <a class="button" href="{% url 'my_workshops' %}">My Workshops</a>
+            <a class="button" href="{% url 'my_saved_stitches' %}">My Saved Stitches</a>
+        </section>
+    </div>
+</section>
 {% endblock content %}

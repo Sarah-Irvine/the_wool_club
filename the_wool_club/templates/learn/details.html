@@ -1,13 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load workshop_filters %}
 
 {% block content %}
 
 <section>
+  
 <div class="card-background workshop-details">
     <section class="card workshop-header">
       <div class="workshop-info">
         <h2 class="workshop-title">{{workshop.title}}</h2>
+      </div>
+      <div>
+        {% if user.is_authenticated %}
+      {% if user|is_attending:workshop %}
+        <form action="{% url 'workshop_remove_attending' workshop.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+          <button type="submit" class="button red">Cancel Attendance</button>
+        </form>
+      {% else %}
+        <form action="{% url 'workshop_add_attending' workshop.id %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+          <button type="submit" class="button yellow">Count me in!</button>
+        </form>
+      {% endif %}
+    {% endif %}
       </div>
     </section>
     <section class="card">
@@ -22,8 +41,11 @@
       <p>You can purchase a kit in the shop or bring your own materials. The kit needed will be noted in the welcome email. If you choose to bring your own materials, details of what is contained in the kit can be found on the product page.</p>
       <br>
       <p>A Zoom link will be sent out ahead of the workshop. We look forward to seeing you!</p>  
-    </div>
+      </div>
     </section>
+
+
 </div>
+
 </section>
 {% endblock content %}

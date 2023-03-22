@@ -22,7 +22,9 @@
           <div class="workshop-text__list">
           <h2 class="bold">{{ article.title }}</h2>
           <br>
-          <p>{{ article.content }}</p>
+          <p class="article_content">{{ article.content }} </p>
+          <br>
+          <a href="{% url 'basics_details' article.title %}" class="article_link">Continue reading >></a>
           </div>
         </div>
       </li>

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load stitch_filters %}
 
 {% block content %}
 
@@ -14,5 +15,9 @@
       <a class="input-group" href="{% url 'stitch_guide' %}" ><img class="nav__svg-logo" src="{% static 'images/refresh.svg' %}" alt="search"></a>
     </form>
 </section>
-    
+
+<section>
+{% include 'partials/stitches.html' %}
+</section>
+
 {% endblock content %}

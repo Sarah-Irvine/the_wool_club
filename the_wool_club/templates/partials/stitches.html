@@ -1,0 +1,38 @@
+{% load static %}
+{% load stitch_filters %}
+
+<ul class="card-background">
+    {% for stitch in stitches %}
+      <li class="workshop">
+        <div class="workshop__image-text">
+          <img class="workshop-image" src="{{ stitch.image_example.url }}" alt="">
+          <div class="workshop-text__list">
+          <h2 class="bold">{{ stitch.stitch }}</h2>
+          <br>
+          <p>Skill Level Required: {{ stitch.skill_level }}</p>
+          <br>
+          <p>Category: {{ stitch.description }}</p>
+          <br>
+          <a href="#" class="article_link">Show me how!</a>
+          </div>
+        </div>
+        <div>
+          {% if user.is_authenticated %}
+          {% if user|is_saved:stitch %}
+            <form action="{% url 'remove_bookmark' stitch.id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+              <button type="submit" class="bookmark"><img src="{% static 'images/bookmark-saved.svg' %}" alt="", height="30px"></button>
+            </form>
+          {% else %}
+            <form action="{% url 'add_bookmark' stitch.id %}" method="post">
+              {% csrf_token %}
+              <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+              <button type="submit" class="bookmark"><img src="{% static 'images/bookmark-unsaved.svg' %}" alt="", height="30px"></button>
+            </form>
+          {% endif %}
+        {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ul>

@@ -45,7 +45,11 @@
             <img class="nav__svg-logo nav__item" src="{% static 'images/account.svg' %}" alt="Account">
             <div class="dropdown-content">
               {% if user.is_authenticated %}
+                  <span>Logged in as: {{ user.username }}</span>
                   <a href="{% url 'my_profile' %}">My Profile</a>
+                  <a href="{% url 'my_workshops' %}">My Workshops</a>
+                  <a href="{% url 'my_saved_stitches' %}">My Saved Stitches</a>
+                  <a href="#">My Orders</a>
                   <a href="{% url 'accounts_logout' %}">Log out</a>
               {% else %}
                   <div class="dropdown__login-register">

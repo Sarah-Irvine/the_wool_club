@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section>
+<div class="card-background workshop-details">
+    <section class="card workshop-header">
+      <div class="workshop-info">
+        <h2 class="workshop-title">{{article.title}}</h2>
+      </div>
+    </section>
+    <section class="card">
+      <div class="workshop-text">
+      <p>{{ article.content }}</p>
+      </div>
+    </section>
+</div>
+</section>
+{% endblock content %}

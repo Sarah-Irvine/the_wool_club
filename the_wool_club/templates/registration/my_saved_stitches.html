@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="card-background">
+        <section class="card save-card">
+            <h2 class="save-card-header">Your bookmarked stitches</h2>
+            {% if saved %}
+            {% include 'partials/stitches.html' with stitches=saved %}
+            {% else %}
+            <p class="centered">You have not saved any stitches! Browse the dictionary <a href="{% url 'stitch_guide'%}">here.</a></p>
+            {% endif %}
+        </section>
+    </section>
+
+{% endblock %}

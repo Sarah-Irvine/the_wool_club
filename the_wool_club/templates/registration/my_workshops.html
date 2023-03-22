@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="card-background">
+        <section class="card save-card">
+            <h2 class="save-card-header">Your upcoming workshops</h2>
+            {% if attending %}
+            {% include 'partials/workshops.html' with workshops=attending %}
+            {% else %}
+            <p class="centered">You have no upcoming workshops! Check out our workshops <a href="{% url 'class_list'%}">here.</a></p>
+            {% endif %}
+        </section>
+    </section>
+
+    <section class="card-background">
+      <section class="card save-card">
+        <h2 class="save-card-header">Your past workshops</h2>
+        {% if attended|length > 0 %}
+        {% include 'partials/workshops.html' with workshops=attended %}
+        {% else %}
+        <p class="centered">Workshops you have attended will appear here.</p>
+        {% endif %}
+        </section>
+    </section>
+
+{% endblock %}
