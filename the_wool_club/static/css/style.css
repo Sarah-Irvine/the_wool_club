@@ -522,15 +522,12 @@ rgba(243,243,243,0.8)
 
 .profile-display{
   display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
-.profile-size{
-  width: 60%;
-}
 
 .profile-size2{
-  width: 40%;
   padding: 20px;
 }
 
