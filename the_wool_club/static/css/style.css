@@ -526,7 +526,6 @@ rgba(243,243,243,0.8)
   align-items: center;
 }
 
-
 .profile-size2{
   padding: 20px;
 }
@@ -534,6 +533,10 @@ rgba(243,243,243,0.8)
 .profile-list{
   list-style-type: none;
   line-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: left;
 }
 
 .profile-buttons{
@@ -543,4 +546,232 @@ rgba(243,243,243,0.8)
   margin-top: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.settings{
+  margin: 0.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-small);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings-profile-image {
+  border-radius: 100%;
+  height: 15rem;
+  flex-shrink: 0;
+  width: 15rem;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.settings-alignment{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: left;
+}
+
+.settings-alignment-buttons{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.settings-item{
+ margin-bottom: 10px;
+ display: flex;
+ justify-items: center;
+ align-items: center;
+ justify-content: left;
+ align-content: center;
+}
+
+.password-button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+ display: flex;
+ justify-items: center;
+ align-items: center;
+ justify-content: center;
+ align-content: center;
+}
+
+.password-change-text{
+  text-decoration: none;
+}
+
+.community{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px 20px 20px 20px;
+  margin-top: 90px;
+  font-size: 32px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+ }
+
+ .community-circles{
+  display: flex;
+  margin-right: 120px;
+ }
+
+ .community-message{
+  margin-bottom: 40px;
+ }
+
+ .profile-image-list {
+  border-radius: 100%;
+  height: 5rem;
+  flex-shrink: 0;
+  width: 5rem;
+  margin-right: 1.5rem;
+  object-fit: cover;
+}
+
+.profile-list-members {
+  
+  list-style-type: none;
+  line-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: left;
+  justify-items: center;
+  align-items: center;
+}
+
+.members-list{
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+
+
+.profile-list-community {
+  list-style-type: none;
+  line-height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: left;
+}
+
+.follow{
+  margin: 0.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-small);
+  list-style-type: none;
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.follow-display{
+  justify-content: start;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.follow-title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.posts{
+  margin: 0.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-small);
+  list-style-type: none;
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.club{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.club-side{
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow-small);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
+  height: 100vh;
+  width: 20%;
+}
+
+.Posts-wall{
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
+  height: 100%;
+  width: 60%;
+}
+
+.posts-wall-card{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.posts-wall-card-title{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sheep-image{
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.all-members{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.follow-club-page{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  list-style-type: none;
+  justify-items: center;
+  margin-left: 20px;
 }

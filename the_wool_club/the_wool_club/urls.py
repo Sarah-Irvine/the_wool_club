@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('accounts/', include('accounts.urls')),
     path('learn/', include('learn.urls')),
+    path('community/', include('community.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -3,46 +3,55 @@
 
 {% block content %}
     <div class="card-background workshop-details">
-            <section class="card">
-            <img class="profile-image" src="{{ user.profile.profile_pic.url }} " style="cursor: pointer;"/>
-            {% if user_form.errors %}
-                <div role="alert">
-                    <div id="form_errors">
-                        {% for key, value in user_form.errors.items %}
-                            <strong>{{ value }}</strong>
-                        {% endfor %}
+        <section class="settings">
+            <p class="learn-title">Update Your Profile Information</p>
+            <img class="settings-profile-image" src="{{ user.profile.profile_pic.url }} " style="cursor: pointer;"/>
+            
+            <div>
+                {% if user_form.errors %}
+                    <div role="alert">
+                        <div id="form_errors">
+                            {% for key, value in user_form.errors.items %}
+                                <strong>{{ value }}</strong>
+                            {% endfor %}
+                        </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            {% endif %}
-    <div >
+                {% endif %}
 
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div>
-                        <div>
-                            <label>Username:</label>
-                                {{ user_form.username }}
-                            <label>Email:</label>
-                                {{ user_form.email }}
+                        <div class="settings-alignment">
+                            <div class="settings-item">
+                                <label>Change Profile Picture: </label>
+                                <br>
+                                {{ profile_form.profile_pic }}
+                            </div>
+                            <div class="settings-item">
+                                <label>Username: </label>
+                                    {{ user_form.username }}
+                            </div>
+                            <div class="settings-item">
+                                <label>Email: </label>
+                                    {{ user_form.email }}
+                            </div>
+                            <label>Let others know a bit about you: </label> {{ profile_form.bio }}
                         </div>
-                        <div>
-                            <a href="#">Change Password</a>
-                            <hr>
-                            <label>Change Profile Picture:</label>
-                            {{ profile_form.profile_pic }}
-                        </div>
-                        <label>Bio:</label> {{ profile_form.bio }}
                     </div>
-                </div>
-                <br><br>
-                <button type="submit" class="button">Save Changes</button>
-                <button type="reset" class="button">Reset</button>
-            </form>
+                    <br><br>
+                    <div class="settings-alignment-buttons">
+                    <button type="submit" class="button">Save Changes</button>
+                    <button type="reset" class="button">Reset</button>
+                    </div>
+                    <hr>
+                    <div class="password-button">
+                        <a href="#" class="password-change-text button">Change Password</a>
+                    </div>
+                </form>
+            </div>
         </section>
-        </div>
     </div>
 {% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="community">
+    <div>
+        {% if user.is_authenticated %}
+            <div>
+                <p class="community-message">Welcome to the wool club community</p>
+                </div>
+                <div>
+                <ul class="community-circles">
+                    <li class="circle-brown"><a class="brown-circle-text" href="{% url 'my_profile' %}">my profile</a></li>
+                    <li class="circle-brown"><a class="brown-circle-text" href="{% url 'the_club' %}">the club</a></li>
+                </ul>
+            </div>
+        {% else %}
+            <div>
+                <p class="community-message">You need to be logged in to view this page</p>
+                </div>
+                <div>
+                <ul class="community-circles">
+                    <li class="circle-brown"><a class="brown-circle-text" href="{% url 'accounts_login' %}">Login</a></li>
+                    <li class="circle-brown"><a class="brown-circle-text" href="{% url 'accounts_register' %}">Register</a></li>
+                </ul>
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock content %} 

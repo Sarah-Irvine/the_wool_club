@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% for profile in profiles %}
+
+<div class="card members-list">
+    <div class="profile-list-members">
+    <img class="profile-image-list" src="{{ profile.profile_pic.url }}" alt="profile pic">
+    <div class="profile-list-username">
+        <p class="bold">{{ profile.first_name }} {{ profile.last_name }}</p>
+        <p>@{{ profile.user.username|lower }}</p>
+    </div>
+    </div>
+    <div>
+        <a href="{% url 'profile' profile.user.id %}" class="button">View Profile</a>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock content %}

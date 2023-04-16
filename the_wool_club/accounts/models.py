@@ -19,6 +19,8 @@ class UserProfile(models.Model):
         Stitch, blank=True, related_name="saved")
     profile_pic = models.ImageField(default='profile_images/sheep.jpg', upload_to='profile_images/')
     bio = models.TextField(null=True, blank=True)
+    first_name = models.TextField(null=True, blank=True)
+    last_name = models.TextField(null=True, blank=True)
     skill_level = models.TextField(choices=Skill.choices, default = 'Beginner')
     follows = models.ManyToManyField(
         "self",
@@ -26,6 +28,7 @@ class UserProfile(models.Model):
         symmetrical=False,
         blank=True
     )
+
     
     def __str__(self):
         return self.user.username

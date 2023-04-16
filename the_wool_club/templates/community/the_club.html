@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="club">
+<div class="club-side">
+    <img class="sheep-image" src="{% static 'images/Logo.png' %}" alt="3 small sheep">
+    <hr>
+    <div class="follow-club-page">**Space for adverts**</div>
+</div>
+<div class="Posts-wall wall-background">
+<div class="posts-wall-card-title">
+    <span>the club</span>
+</div>
+<div class="card posts-wall-card">
+    <span>Hello {{ user.username }}</span>
+    <span>Join the discussion & share something with your followers...</span>
+</div>
+</div>
+<div class="club-side">
+    <img class="sheep-image" src="{% static 'images/Logo.png' %}" alt="3 small sheep">
+    <hr>
+    <a class="all-members" href="{% url 'profile_list'%}">All Members</a>
+    <hr>
+    <div class="follow-club-page">
+        <span class="follow-title">Following</span>
+        {% for following in user.profile.follows.all %}
+        <li>@{{ following|lower }}</li>
+        {% endfor %}
+    </div>
+    <hr>
+    <div class="follow-club-page">
+        <span class="follow-title">Followers</span>
+        {% for followers in user.profile.followed_by.all %}
+        <li>@{{ followers|lower }}</li>
+        {% endfor %}
+    </div>
+    <hr>
+</div>
+
+</section>
+{% endblock content %}

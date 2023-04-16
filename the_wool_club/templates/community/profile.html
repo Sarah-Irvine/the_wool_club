@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+    <div class="card-background workshop-details">
+        <section class="card">
+            <section class="profile-display">
+
+                <div class="profile-size2">
+                    <img class="profile-image" src="{{ profile.profile_pic.url }}" alt="profile pic", height="50px">
+                </div>
+
+                <div class="profile-size">
+                    <ul class="profile-list-community">
+                        <li>@{{ profile.user.username|lower }}</li>
+                        <li>Level: {{ profile.skill_level }}</li>
+                        <li>Bio: {{ profile.bio }}</li>
+                    </ul>
+                </div>
+
+            </section>
+        </section>
+
+        <section class="follow-display">
+            <div class=" card follow">
+                <span class="follow-title">Following</span>
+                {% for following in profile.follows.all %}
+                <li>@{{ following|lower }}</li>
+                {% endfor %}
+            </div>
+            <div class="card follow">
+                <span class="follow-title">Followers</span>
+                {% for followers in profile.followed_by.all %}
+                <li>@{{ followers|lower }}</li>
+                {% endfor %}
+            </div>
+            <div class="posts">
+                <span class="follow-title">Send a message to @{{ profile.user.username|lower }}</span>
+                <span>**Coming Soon!**</span>
+            </div>
+        </section>
+    </div>
+</section>
+{% endblock content %}
