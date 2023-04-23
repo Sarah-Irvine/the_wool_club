@@ -13,6 +13,18 @@
 
                 <div class="profile-size">
                     <ul class="profile-list-community">
+                        <li>
+                            <form method="post">
+                            {% csrf_token %}
+                            <div class="buttons has-addons">
+                                {% if profile in user.profile.follows.all %}
+                                    <button class="button" name="follow" value="unfollow">Unfollow</button>
+                                {% else %}
+                                    <button class="button" name="follow" value="follow">Follow</button>
+                                {% endif %}
+                            </div>
+                            </form>
+                        </li>
                         <li>@{{ profile.user.username|lower }}</li>
                         <li>Level: {{ profile.skill_level }}</li>
                         <li>Bio: {{ profile.bio }}</li>

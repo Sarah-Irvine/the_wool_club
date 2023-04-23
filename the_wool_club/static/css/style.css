@@ -775,3 +775,15 @@ rgba(243,243,243,0.8)
   justify-items: center;
   margin-left: 20px;
 }
+
+.my-profile-club-display{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.club-button{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}

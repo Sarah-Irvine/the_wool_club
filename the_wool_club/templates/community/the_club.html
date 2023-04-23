@@ -6,7 +6,12 @@
 <div class="club-side">
     <img class="sheep-image" src="{% static 'images/Logo.png' %}" alt="3 small sheep">
     <hr>
-    <div class="follow-club-page">**Space for adverts**</div>
+    <div class="follow-club-page">
+        <span>Hello {{ user.username }}</span>
+        <br>
+        <br>
+        <span>Join the discussion & share something with your followers...</span>
+    </div>
 </div>
 <div class="Posts-wall wall-background">
 <div class="posts-wall-card-title">
@@ -14,7 +19,6 @@
 </div>
 <div class="card posts-wall-card">
     <span>Hello {{ user.username }}</span>
-    <span>Join the discussion & share something with your followers...</span>
 </div>
 </div>
 <div class="club-side">
@@ -25,14 +29,18 @@
     <div class="follow-club-page">
         <span class="follow-title">Following</span>
         {% for following in user.profile.follows.all %}
-        <li>@{{ following|lower }}</li>
+        <li>
+            <a href="{% url 'profile' following.user.id %}">@{{ following|lower }}</a>
+        </li>
         {% endfor %}
     </div>
     <hr>
     <div class="follow-club-page">
         <span class="follow-title">Followers</span>
         {% for followers in user.profile.followed_by.all %}
-        <li>@{{ followers|lower }}</li>
+        <li>
+            <a href="{% url 'profile' followers.user.id %}">@{{ followers|lower }}</a>
+        </li>
         {% endfor %}
     </div>
     <hr>

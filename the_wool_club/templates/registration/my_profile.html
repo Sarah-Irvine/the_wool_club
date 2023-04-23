@@ -32,5 +32,33 @@
             <a class="button" href="{% url 'my_saved_stitches' %}">My Saved Stitches</a>
         </section>
     </div>
+
+    <div class="profile-buttons">
+        <section class="card my-profile-club-display">
+            <div class="club-button">
+            <a class="button" href="{% url 'the_club' %}">the club</a>
+            </div>
+            <div class="follow-display">
+                <div class=" card follow">
+                    <span class="follow-title">Following</span>
+                    {% for following in user.profile.follows.all %}
+                    <li>@{{ following|lower }}</li>
+                    {% endfor %}
+                </div>
+                <div class="card follow">
+                    <span class="follow-title">Followers</span>
+                    {% for followers in user.profile.followed_by.all %}
+                    <li>@{{ followers|lower }}</li>
+                    {% endfor %}
+                </div>
+                <div class="posts">
+                    <span class="follow-title">My messages</span>
+                    <span>**Coming Soon!**</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
 </section>
 {% endblock content %}
