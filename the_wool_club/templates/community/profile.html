@@ -14,16 +14,19 @@
                 <div class="profile-size">
                     <ul class="profile-list-community">
                         <li>
-                            <form method="post">
-                            {% csrf_token %}
-                            <div class="buttons has-addons">
-                                {% if profile in user.profile.follows.all %}
-                                    <button class="button" name="follow" value="unfollow">Unfollow</button>
-                                {% else %}
-                                    <button class="button" name="follow" value="follow">Follow</button>
-                                {% endif %}
-                            </div>
-                            </form>
+                            {% if profile in user.profile.follows.all %}
+                                <form action="{% url 'unfollow' profile.user.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                <button type="submit" class="button red">Unfollow</button>
+                                </form>
+                            {% else %}
+                                <form action="{% url 'follow' profile.user.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                                <button type="submit" class="button yellow">Follow</button>
+                                </form>
+                            {% endif %}
                         </li>
                         <li>@{{ profile.user.username|lower }}</li>
                         <li>Level: {{ profile.skill_level }}</li>

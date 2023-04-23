@@ -16,15 +16,18 @@ def profile_list(request):
 
 def profile(request, user):
     profile = {
-       "profile": get_object_or_404(UserProfile, user=user)
+        "profile" : get_object_or_404(UserProfile, user=user)
     }
-    if request.method == "POST":
-        current_user_profile = request.user.profile.id
-        data = request.POST
-        action = data.get("follow")
-        if action == "follow":
-            current_user_profile.follows.add(profile)
-        elif action == "unfollow":
-            current_user_profile.follows.remove(profile)
-        current_user_profile.save()
     return render(request, "community/profile.html", profile)
+
+def follow(request,user):
+    profile = get_object_or_404(UserProfile, user=user)
+    if request.method == "POST":
+        request.user.profile.follows.add(profile)
+    return redirect(request.POST.get("redirect_url"))        
+
+def unfollow(request,user):
+    profile = get_object_or_404(UserProfile, user=user)
+    if request.method == "POST":
+        request.user.profile.follows.remove(profile)
+    return redirect(request.POST.get("redirect_url")) 
