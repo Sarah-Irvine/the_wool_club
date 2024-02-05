@@ -1,3 +1,4 @@
 .env/
 __pycache__/
 .DS_Store
+the_wool_club/the_wool_club/.env
